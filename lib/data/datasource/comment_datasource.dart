@@ -11,7 +11,7 @@ abstract class ICommentDatasource {
 
 class CommentRemoteDatasource extends ICommentDatasource {
   final Dio _dio = locator.get();
-  final String userId = AuthManager.readId();
+
   @override
   Future<List<Comment>> getComments(String productId) async {
     try {
@@ -40,6 +40,7 @@ class CommentRemoteDatasource extends ICommentDatasource {
   @override
   Future<void> postComment(String productId, String comment) async {
     try {
+      final String userId = AuthManager.readId();
       await _dio.post('collections/comment/records', data: {
         'text': comment,
         'user_id': userId,
