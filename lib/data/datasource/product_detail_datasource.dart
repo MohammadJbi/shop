@@ -30,7 +30,7 @@ class DetailProductRemoteDatasource extends IDetailProductDatasource {
             (jsonObject) => ProductImage.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],
@@ -49,7 +49,7 @@ class DetailProductRemoteDatasource extends IDetailProductDatasource {
             (jsonObject) => VariantType.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],
@@ -70,7 +70,7 @@ class DetailProductRemoteDatasource extends IDetailProductDatasource {
             (jsonObject) => Variant.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],
@@ -98,7 +98,7 @@ class DetailProductRemoteDatasource extends IDetailProductDatasource {
           ProductVariant(variantType, variant),
         );
       }
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],
@@ -118,7 +118,7 @@ class DetailProductRemoteDatasource extends IDetailProductDatasource {
         queryParameters: qParams,
       );
       return Category.fromJsonObject(response.data['items'][0]);
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],
@@ -139,7 +139,7 @@ class DetailProductRemoteDatasource extends IDetailProductDatasource {
             (jsonObject) => Property.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],

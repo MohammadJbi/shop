@@ -21,7 +21,7 @@ class ProductDatasource extends IProductDatasource {
             (jsonObject) => Product.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],
@@ -44,7 +44,7 @@ class ProductDatasource extends IProductDatasource {
             (jsonObject) => Product.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],
@@ -67,7 +67,7 @@ class ProductDatasource extends IProductDatasource {
             (jsonObject) => Product.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],

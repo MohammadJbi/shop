@@ -27,7 +27,7 @@ class CommentRemoteDatasource extends ICommentDatasource {
             (jsonObject) => Comment.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(
         ex.response?.statusCode,
         ex.response?.data['message'],
@@ -45,7 +45,7 @@ class CommentRemoteDatasource extends ICommentDatasource {
         'user_id': userId,
         'product_id': productId,
       });
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       throw ApiException(ex.response?.statusCode, ex.response?.data['message']);
     } catch (ex) {
       throw ApiException(0, 'unknown error');
