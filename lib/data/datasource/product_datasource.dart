@@ -7,7 +7,7 @@ abstract class IProductDatasource {
   Future<List<Product>> getProducts();
   Future<List<Product>> getBestSellerProducts();
   Future<List<Product>> getHotestProducts();
-  Future<List<Product>> getProductSearch(String keywordValue);
+  Future<List<Product>> getProductSearchResult(String query);
 }
 
 class ProductDatasource extends IProductDatasource {
@@ -21,10 +21,10 @@ class ProductDatasource extends IProductDatasource {
             (jsonObject) => Product.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioException catch (ex) {
+    } on DioException catch (dioException) {
       throw ApiException(
-        ex.response?.statusCode,
-        ex.response?.data['message'],
+        dioException.response?.statusCode,
+        dioException.response?.data['message'],
       );
     } catch (ex) {
       throw ApiException(0, 'unknown error');
@@ -44,10 +44,10 @@ class ProductDatasource extends IProductDatasource {
             (jsonObject) => Product.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioException catch (ex) {
+    } on DioException catch (dioException) {
       throw ApiException(
-        ex.response?.statusCode,
-        ex.response?.data['message'],
+        dioException.response?.statusCode,
+        dioException.response?.data['message'],
       );
     } catch (ex) {
       throw ApiException(0, 'unknown error');
@@ -67,10 +67,10 @@ class ProductDatasource extends IProductDatasource {
             (jsonObject) => Product.fromJsonObject(jsonObject),
           )
           .toList();
-    } on DioException catch (ex) {
+    } on DioException catch (dioException) {
       throw ApiException(
-        ex.response?.statusCode,
-        ex.response?.data['message'],
+        dioException.response?.statusCode,
+        dioException.response?.data['message'],
       );
     } catch (ex) {
       throw ApiException(0, 'unknown error');
@@ -78,10 +78,10 @@ class ProductDatasource extends IProductDatasource {
   }
 
   @override
-  Future<List<Product>> getProductSearch(String keywordValue) async {
+  Future<List<Product>> getProductSearchResult(String query) async {
     List<Product> productList = await getProducts();
     var productListBox = productList.where((element) {
-      return element.name.toLowerCase().contains(keywordValue.toLowerCase());
+      return element.name.toLowerCase().contains(query.toLowerCase());
     }).toList();
     return productListBox;
   }

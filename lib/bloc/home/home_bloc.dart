@@ -34,14 +34,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       },
     );
 
-    on<HomeSearchProductsEvent>(
+    on<HomeSearchWithQueryData>(
       (event, emit) async {
-        var response =
-            await _productRepository.getProductSearch(event.keywordVale);
+        var result = await _productRepository.getProductSearch(event.query);
         emit(
-          HomeSearchProductsState(response),
+          SearchRequestSuccessState(result),
         );
-        if (event.keywordVale.isEmpty) {
+        if (event.query.isEmpty) {
           add(HomeGetInitilzeData());
         }
       },

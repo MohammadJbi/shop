@@ -2,8 +2,8 @@ abstract class HomeEvent {}
 
 class HomeGetInitilzeData implements HomeEvent {}
 
-class HomeSearchProductsEvent extends HomeEvent {
-  String keywordVale;
+class HomeSearchWithQueryData extends HomeEvent {
+  String query;
 
-  HomeSearchProductsEvent(this.keywordVale);
+  HomeSearchWithQueryData(this.query);
 }

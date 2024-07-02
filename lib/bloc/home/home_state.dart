@@ -27,7 +27,7 @@ class HomeRequestSuccessState implements HomeState {
 
 class HomeSearchLoadingState extends HomeState {}
 
-class HomeSearchProductsState extends HomeState {
-  Either<String, List<Product>> response;
-  HomeSearchProductsState(this.response);
+class SearchRequestSuccessState extends HomeState {
+  Either<String, List<Product>> searchResult;
+  SearchRequestSuccessState(this.searchResult);
 }

@@ -8,7 +8,7 @@ abstract class IProductRepository {
   Future<Either<String, List<Product>>> getProducts();
   Future<Either<String, List<Product>>> getBestSellerProducts();
   Future<Either<String, List<Product>>> getHotestProducts();
-  Future<Either<String, List<Product>>> getProductSearch(String keywordValue);
+  Future<Either<String, List<Product>>> getProductSearch(String query);
 }
 
 class ProductRepository implements IProductRepository {
@@ -44,9 +44,9 @@ class ProductRepository implements IProductRepository {
   }
 
   @override
-  Future<Either<String, List<Product>>> getProductSearch(keywordValue) async {
+  Future<Either<String, List<Product>>> getProductSearch(query) async {
     try {
-      List<Product> response = await _dataSource.getProductSearch(keywordValue);
+      List<Product> response = await _dataSource.getProductSearchResult(query);
       return Right(response);
     } on ApiException catch (ex) {
       return Left(ex.message ?? 'خطا, محتوایی برای نمایش وجود ندارد');

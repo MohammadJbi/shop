@@ -46,8 +46,8 @@ Widget _getHomeScreenContent(HomeState state, BuildContext context) {
               child: LoadingAnimation(),
             )
           },
-          if (state is HomeSearchProductsState) ...{
-            state.response.fold(
+          if (state is SearchRequestSuccessState) ...{
+            state.searchResult.fold(
               (exceptionMessage) {
                 return SliverToBoxAdapter(
                   child: Text(exceptionMessage),
@@ -391,7 +391,7 @@ class GetSearchBox extends StatelessWidget {
                     onChanged: (value) {
                       context
                           .read<HomeBloc>()
-                          .add(HomeSearchProductsEvent(value));
+                          .add(HomeSearchWithQueryData(value));
                     },
                     decoration: const InputDecoration(
                       hintText: 'جستجوی محصولات',
