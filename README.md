@@ -1,16 +1,21 @@
-# apple_shop_application
+# اپل شاپ (Apple Shop) 🛒
 
-A new Flutter project.
+**پروژه‌ای برای مدیریت و فروش محصولات آنلاین**
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📝 توضیحات کلی
+این پروژه یک سیستم فروشگاه ساده را پیاده‌سازی می‌کند که شامل ویژگی‌های زیر است:
+- مدیریت محصولات
+- افزودن و حذف محصولات به سبد خرید
+- سیستم محاسبه فاکتور
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📋 ویژگی‌ها
+- ثبت و مدیریت محصولات
+- قابلیت جستجو و فیلتر محصولات
+- ثبت نام و ساخت پروفایل
+- رابط کاربری ساده و کاربرپسند
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
